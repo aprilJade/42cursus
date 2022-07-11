@@ -60,17 +60,15 @@ char    *ft_strjoin(char *first, char *second)
     i = 0;
 	while (first[i])
 		i++;
+    j = 0;
     while (second[j])
         j++;
     ret = (char *)malloc(sizeof(char) * (i + j + 1));
     if (ret == NULL)
         return (NULL);
-    i = 0;
     ft_strcpy(ret, first);
 	free(first);
-    j = 0;
-    while (second[j])
-        ret[i++] = second[j++];
-    ret[i] = 0;
+    ft_strcpy(ret + i, second);
+    ret[i + j] = 0;
     return (ret);
 }

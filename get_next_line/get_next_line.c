@@ -18,12 +18,11 @@ char    *extract_line(char *remain)
 {
     char    *line;
     int     i;
-    int     j;
 
     i = 0;
     while (remain[i] && remain[i] != '\n')
         i++;
-    line = (char *)malloc(sizeof(char) * (i + 2));
+    line = (char *)malloc(sizeof(char) * (i + 1 + (remain[i] == '\n')));
     if (line == NULL)
         return (NULL);
     i = 0;
@@ -62,7 +61,7 @@ char    *update_remain(char *remain)
     return (remain);
 }
 
-char	*read_fd(int fd, char *line, char *remain)
+char	*read_fd(int fd, char *remain)
 {
 	char	*buf;
 	int		read_cnt;
@@ -97,7 +96,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	remain = read_fd(fd, line, remain);
+	remain = read_fd(fd, remain);
 	if (remain == NULL)
 		return (NULL);
 	line = extract_line(remain);
