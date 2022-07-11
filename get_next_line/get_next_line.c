@@ -19,8 +19,10 @@ static char    *extract_line(char *remain)
     char    *line;
     int     i;
 
+    if (*remain == '\0')
+		return (NULL);
     i = 0;
-    while (remain[i] && remain[i] != '\n')
+	while (remain[i] && remain[i] != '\n')
         i++;
     line = (char *)malloc(sizeof(char) * (i + 1 + (remain[i] == '\n')));
     if (line == NULL)
@@ -70,7 +72,7 @@ static char	*read_fd(int fd, char *remain)
 	if (buf == NULL)
 		return (NULL);
 	read_cnt = 1;
-	while (!ft_strchr(remain, '\n'))
+	while (!find_new_line(remain))
 	{
 		read_cnt = read(fd, buf, BUFFER_SIZE);
         if (read_cnt == 0)
@@ -100,27 +102,23 @@ char	*get_next_line(int fd)
 	if (remain == NULL)
 		return (NULL);
 	line = extract_line(remain);
-	if (line == NULL)
-		return (NULL);
 	remain = update_remain(remain);
 	return (line);
 }
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+
 int main(void)
 {
-	int fd = open("test1.txt", O_RDONLY); 
-	if (fd < 0)
-		return 1;
+	int fd = open("test1.txt", O_RDONLY);
 	char *line;
 	while ((line = get_next_line(fd)) != NULL)
 	{
 		printf("%s", line);
 		free(line);
 	}
-	close(fd);
-	return 0;
 }
+*/

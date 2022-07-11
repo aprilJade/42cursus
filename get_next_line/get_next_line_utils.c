@@ -34,13 +34,13 @@ static char    *ft_strcpy(char *d, char *s)
     return (d);
 }
 
-char    *ft_strchr(char *s, char c)
+char    *find_new_line(char *s)
 {
     if (s == NULL)
         return (NULL);
     while (*s)
     {
-        if (*s == c)
+        if (*s == '\n')
             return (s);
         s++;
     }
