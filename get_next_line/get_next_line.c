@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char    *extract_line(char *remain)
+static char    *extract_line(char *remain)
 {
     char    *line;
     int     i;
@@ -40,7 +40,7 @@ char    *extract_line(char *remain)
     return (line);
 }
 
-char    *update_remain(char *remain)
+static char    *update_remain(char *remain)
 {
     int i;
     int j;
@@ -61,7 +61,7 @@ char    *update_remain(char *remain)
     return (remain);
 }
 
-char	*read_fd(int fd, char *remain)
+static char	*read_fd(int fd, char *remain)
 {
 	char	*buf;
 	int		read_cnt;
@@ -122,4 +122,5 @@ int main(void)
 		free(line);
 	}
 	close(fd);
+	return 0;
 }
