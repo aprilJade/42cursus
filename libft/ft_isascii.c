@@ -6,13 +6,11 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 15:34:17 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/04 15:35:30 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/06 18:28:03 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (c);
-	return (0);
+	return (c >= 0 && c <= 127);
 }

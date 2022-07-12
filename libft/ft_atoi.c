@@ -6,29 +6,33 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 22:01:14 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/05 22:13:18 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:20:26 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+static int	is_space(char c)
+{
+	return (c == ' ' || c == '\n' || c == '\t'
+		|| c == '\v' || c == '\f' || c == '\r');
+}
 
 int	ft_atoi(const char *str)
 {
 	long long	flag;
 	long long	n;
 
-	while (*str == " ")
+	while (is_space(*str))
 		str++;
-	if (*str == NULL)
+	if (!*str)
 		return (0);
+	flag = 1;
 	if (*str == '-')
 	{
 		flag = -1;
 		str++;
 	}
 	else if (*str == '+')
-	{
-		flag = 1;
 		str++;
-	}
 	n = 0;
 	while (*str >= '0' && *str <= '9')
 		n = n * 10 + (*str++ - '0');

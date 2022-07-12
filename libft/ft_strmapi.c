@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 21:34:06 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/09 17:14:57 by seonggyk         ###   ########.fr       */
+/*   Created: 2022/07/06 14:48:46 by seonggyk          #+#    #+#             */
+/*   Updated: 2022/07/08 20:07:11 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
 
-static int	ft_strlen(const char *str)
+static int	ft_strlen(char const *str)
 {
-	const char	*s;
+	char const	*s;
 
 	s = str;
 	while (*s)
@@ -22,17 +22,24 @@ static int	ft_strlen(const char *str)
 	return (s - str);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	size_t	ret;
+	char	*ret;
+	int		len;
+	int		i;
 
-	ret = ft_strlen(src);
-	if (size == 0)
-		return (ret);
-	i = 1;
-	while (*src && i++ < size)
-		*dst++ = *src++;
-	*dst = 0;
+	if (s == NULL)
+		return (NULL);
+	len = ft_strlen(s);
+	ret = (char *)malloc(sizeof(char) * (len + 1));
+	if (ret == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		ret[i] = f(i, s[i]);
+		i++;
+	}
+	ret[len] = 0;
 	return (ret);
 }

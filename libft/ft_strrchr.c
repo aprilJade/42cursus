@@ -6,22 +6,21 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 23:09:35 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/04 23:11:44 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/08 13:54:26 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	const char	*ps;
 
 	ps = s;
 	while (*ps)
 		ps++;
-	while (s != ps)
-	{
+	if (c == 0)
+		return ((char *)ps);
+	while (s != ps--)
 		if (*ps == c)
-			return (ps);
-		ps--;
-	}
+			return ((char *)ps);
 	return (0);
 }

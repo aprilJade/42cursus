@@ -6,13 +6,11 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 15:35:44 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/04 16:39:13 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/06 18:18:17 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 126)
-		return (c);
-	return (0);
+	return (c >= 32 && c <= 126);
 }

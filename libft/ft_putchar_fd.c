@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seonggyk <seonggyk@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 15:23:46 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/06 18:12:40 by seonggyk         ###   ########.fr       */
+/*   Created: 2022/07/06 15:35:15 by seonggyk          #+#    #+#             */
+/*   Updated: 2022/07/06 16:01:04 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include <unistd.h>
+
+void	ft_putchar_fd(char c, int fd)
 {
-	return (c >= '0' && c <= '9');
+	write(fd, &c, 1);
 }

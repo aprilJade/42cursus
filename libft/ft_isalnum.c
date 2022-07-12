@@ -6,33 +6,25 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 15:25:09 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/04 15:26:11 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/08 10:20:52 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int ft_isalpha(int c)
+static int	ft_isalpha(int c)
 {
-    int tmp = c ^ 0b01000000;
-
-    if (c < 65)
-        return (0);
-        
-    if (tmp > 64 && tmp < 123) {
-        return c;
-    }
-    return (0);
-}
-
-static int ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (c);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	if (c >= 'A' && c <= 'Z')
+		return (1);
 	return (0);
 }
 
-int isalnum(int c)
+static int	ft_isdigit(int c)
 {
-    if (ft_isalpha(c) && ft_isdigit(c))
-        return (c);
-    return (0);
+	return (c >= '0' && c <= '9');
+}
+
+int	ft_isalnum(int c)
+{
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

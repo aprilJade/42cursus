@@ -6,19 +6,15 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 15:15:16 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/04 15:15:18 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/08 10:20:10 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-    int tmp = c ^ 0b01000000;
-
-    if (c < 65)
-        return (0);
-        
-    if (tmp > 64 && tmp < 123) {
-        return (c);
-    }
-    return (0);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
 }

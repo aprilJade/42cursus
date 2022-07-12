@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 23:25:23 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/04 23:27:44 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/08 19:04:55 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	ft_memcmp(const void *l, const void *r, size_t n)
 {
-	size_t		i;
-	const char	*pl;
-	const char	*pr;
+	size_t				i;
+	const unsigned char	*pl;
+	const unsigned char	*pr;
 
-	pl = l;
-	pr = r;
+	pl = (const unsigned char *)l;
+	pr = (const unsigned char *)r;
 	i = 0;
-	while (*pl && *pr && i++ < n)
+	while (i++ < n)
 	{
 		if (*pl != *pr)
 			return (*pl - *pr);

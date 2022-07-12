@@ -6,11 +6,13 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 21:52:17 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/04 21:52:39 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/06 18:36:21 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	return (c ^ 32);
+	if (c >= 65 && c <= 90)
+		c ^= 32;
+	return (c);
 }

@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 22:18:45 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/05 22:24:45 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/06 16:05:00 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_strlen(const char *s)
 	ps = s;
 	while (*ps)
 		ps++;
-	return (ps - p);
+	return (ps - s);
 }
 
 char	*ft_strdup(const char *s)
@@ -34,6 +34,9 @@ char	*ft_strdup(const char *s)
 		return (NULL);
 	i = 0;
 	while (i < len)
-		ret[i++] = s[i];
+	{
+		ret[i] = s[i];
+		i++;
+	}
 	return (ret);
 }

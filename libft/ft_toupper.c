@@ -6,11 +6,13 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 05:49:04 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/04 05:49:41 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/06 18:35:32 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	return (c ^ 32);
+	if (c >= 97 && c <= 122)
+		c ^= 32;
+	return (c);
 }

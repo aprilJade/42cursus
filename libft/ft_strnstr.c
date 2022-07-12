@@ -6,15 +6,15 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 21:41:17 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/05 21:59:33 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/12 08:46:10 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-static int	ft_strlen(char *str)
+static int	ft_strlen(const char *str)
 {
-	char	*s;
+	const char	*s;
 
 	s = str;
 	while (*s)
@@ -22,7 +22,7 @@ static int	ft_strlen(char *str)
 	return (s - str);
 }
 
-static int	ft_strcmp(char *l, char *r)
+static int	ft_strcmp(unsigned char *l, unsigned char *r)
 {
 	while (*l && *r)
 	{
@@ -34,24 +34,27 @@ static int	ft_strcmp(char *l, char *r)
 	return (0);
 }
 
-char	*strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	littleLen;
-	int bigLen;
-	int	i;
+	size_t	little_len;
+	size_t	big_len;
+	size_t	i;
 
-	if (little == NULL)
+	if (len == 0)
 		return (NULL);
-	littleLen = ft_strlen(little);
-	if (littleLen == 0)
+	little_len = ft_strlen(little);
+	if (little_len == 0)
+		return ((char *)big);
+	big_len = ft_strlen(big);
+	if (big_len > len)
+		big_len = len;
+	if (big_len < little_len)
 		return (NULL);
-	bigLen = ft_strlen(big);
-	if (bigLen > len)
-		bigLen = len;
-	while (i <= bigLen - littleLen)
+	i = 0;
+	while (i <= big_len - little_len)
 	{
-		if (ft_strcmp(big + i, little) == 0)
-			return (big + i);
+		if (ft_strcmp((unsigned char *)big + i, (unsigned char *)little) == 0)
+			return ((char *)big + i);
 		i++;
 	}
 	return (NULL);

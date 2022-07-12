@@ -1,16 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 15:23:46 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/06 18:12:40 by seonggyk         ###   ########.fr       */
+/*   Created: 2022/07/06 15:36:43 by seonggyk          #+#    #+#             */
+/*   Updated: 2022/07/08 20:08:54 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include <unistd.h>
+
+static int	ft_strlen(char *s)
 {
-	return (c >= '0' && c <= '9');
+	char	*str;
+
+	str = s;
+	while (*s)
+		s++;
+	return (s - str);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	len;
+	int	sum;
+	int	result;
+
+	if (s == NULL || fd < 0)
+		return ;
+	len = ft_strlen(s);
+	result = 0;
+	sum = 0;
+	while (sum != len)
+	{
+		s += sum;
+		len -= sum;
+		result = write(fd, s, len);
+		sum += result;
+	}
 }
