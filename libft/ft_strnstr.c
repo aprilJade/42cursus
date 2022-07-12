@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 21:41:17 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/12 08:46:10 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/12 10:39:36 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	big_len;
 	size_t	i;
 
-	if (len == 0)
-		return (NULL);
 	little_len = ft_strlen(little);
 	if (little_len == 0)
 		return ((char *)big);
+	if (len == 0)
+		return (NULL);
 	big_len = ft_strlen(big);
 	if (big_len > len)
 		big_len = len;

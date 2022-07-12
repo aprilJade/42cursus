@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 14:18:34 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/12 08:52:10 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/12 10:34:12 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	get_word_count(char const *s, char c)
 		if (*s == '\0')
 			break ;
 		word_count++;
-		while (*s != c)
+		while (*s != c && *s)
 			s++;
 	}
 	return (word_count);
