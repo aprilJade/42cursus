@@ -2,3 +2,5 @@
 */a.out
 *.txt
 */gnlTester
+.DS_Store
+*/.DS_Store
