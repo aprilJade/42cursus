@@ -6,28 +6,21 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 13:54:13 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/10 19:48:30 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/13 18:09:36 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	g_set_table[128];
-
-static void	make_set_table(char const *set)
+void	make_set_table(char const *set, char *table)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (i < 128)
-		g_set_table[i++] = 0;
+		table[i++] = 0;
 	while (*set)
-		g_set_table[(int)*set++] = 1;
-}
-
-static int	is_in_set(const char c)
-{
-	return ((int)g_set_table[(int)c]);
+		table[(int)*set++] = 1;
 }
 
 static void	ft_strncpy(char *dest, char *src, int n)
@@ -55,11 +48,12 @@ char	*ft_strtrim(char const *s, char const *set)
 	char		*ret;
 	char		*start_addr;
 	char		*end_addr;
+	char		set_table[128];
 
 	if (!s || !set)
 		return (NULL);
-	make_set_table(set);
-	while (is_in_set(*s))
+	make_set_table(set, set_table);
+	while (set_table[(int)*s])
 		s++;
 	if (*s == '\0')
 		return (make_empty_string());
@@ -67,7 +61,7 @@ char	*ft_strtrim(char const *s, char const *set)
 	while (*s)
 		s++;
 	s--;
-	while (is_in_set(*s))
+	while (set_table[(int)*s])
 		s--;
 	end_addr = (char *)s;
 	ret = (char *)malloc(sizeof(char) * (end_addr - start_addr + 2));
