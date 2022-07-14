@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:11:53 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/14 14:17:33 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/14 16:39:59 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,9 @@ static char	*update_remain(char *remain)
 
 static char	*read_fd(int fd, char *remain)
 {
-	char	*buf;
+	char	buf[BUFFER_SIZE + 1];
 	int		read_cnt;
 
-	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (buf == NULL)
-		return (NULL);
 	read_cnt = 1;
 	while (!find_new_line(remain))
 	{
@@ -79,7 +76,6 @@ static char	*read_fd(int fd, char *remain)
 			break ;
 		if (read_cnt < 0)
 		{
-			free(buf);
 			if (remain)
 				free(remain);
 			return (NULL);
@@ -87,7 +83,6 @@ static char	*read_fd(int fd, char *remain)
 		buf[read_cnt] = 0;
 		remain = ft_strjoin(remain, buf);
 	}
-	free(buf);
 	return (remain);
 }
 
@@ -105,20 +100,3 @@ char	*get_next_line(int fd)
 	remain = update_remain(remain);
 	return (line);
 }
-/*
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-
-int main(void)
-{
-	int fd = open("test1.txt", O_RDONLY);
-	char *line;
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		printf("%s", line);
-		free(line);
-	}
-}
-*/

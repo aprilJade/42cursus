@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:11:53 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/14 15:45:28 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/14 16:40:13 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+
+#ifndef OPEN_MAX
+# define OPEN_MAX 256
+#endif
 
 static char	*extract_line(char *remain)
 {
@@ -66,12 +70,9 @@ static char	*update_remain(char *remain)
 
 static char	*read_fd(int fd, char *remain)
 {
-	char	*buf;
+	char	buf[BUFFER_SIZE + 1];
 	int		read_cnt;
 
-	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (buf == NULL)
-		return (NULL);
 	read_cnt = 1;
 	while (!find_new_line(remain))
 	{
@@ -80,7 +81,6 @@ static char	*read_fd(int fd, char *remain)
 			break ;
 		if (read_cnt < 0)
 		{
-			free(buf);
 			if (remain)
 				free(remain);
 			return (NULL);
@@ -88,7 +88,6 @@ static char	*read_fd(int fd, char *remain)
 		buf[read_cnt] = 0;
 		remain = ft_strjoin(remain, buf);
 	}
-	free(buf);
 	return (remain);
 }
 
