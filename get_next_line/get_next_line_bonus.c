@@ -6,13 +6,14 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:11:53 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/14 15:15:09 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/14 15:45:28 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 
 static char	*extract_line(char *remain)
 {
@@ -94,9 +95,9 @@ static char	*read_fd(int fd, char *remain)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*remain[10240];
+	static char	*remain[OPEN_MAX];
 
-	if (fd < 0 || BUFFER_SIZE < 1)
+	if (fd < 0 || fd > OPEN_MAX - 1 || BUFFER_SIZE < 1)
 		return (NULL);
 	remain[fd] = read_fd(fd, remain[fd]);
 	if (remain[fd] == NULL)
@@ -105,20 +106,3 @@ char	*get_next_line(int fd)
 	remain[fd] = update_remain(remain[fd]);
 	return (line);
 }
-/*
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-
-int main(void)
-{
-	int fd = open("test1.txt", O_RDONLY);
-	char *line;
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		printf("%s", line);
-		free(line);
-	}
-}
-*/
