@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 04:18:51 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/10 14:59:26 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/14 11:43:10 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char		*h_dest;
 	const unsigned char	*h_src;
-	size_t				i;
 
 	if (n == 0)
 		return (dest);
@@ -24,11 +23,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		return (NULL);
 	h_dest = (unsigned char *)dest;
 	h_src = (const unsigned char *)src;
-	i = 0;
-	while (i < n)
-	{
-		h_dest[i] = h_src[i];
-		i++;
-	}
+	while (n--)
+		*h_dest++ = *h_src++;
 	return (dest);
 }
