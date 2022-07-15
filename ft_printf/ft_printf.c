@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: apriljade <apriljade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:35:25 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/15 18:10:06 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/15 21:55:25 by apriljade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_printf(char *s, ...)
 		{
 			s++;
 			func = functions[(int)*s++];
-			if (func == NULL)
+			if (func == UNSUPPORTED_FORMAT)
 				break ;
 			printed_count += func(&ap);		
 		}

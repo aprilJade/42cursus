@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: apriljade <apriljade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 12:24:51 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/15 17:49:18 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/15 21:55:20 by apriljade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdarg.h>
 
 #define SUPPORTED_FORMAT_COUNT 9
+#define UNSUPPORTED_FORMAT 0
 
 int	print_char(va_list *ap);
 int	print_string(va_list *ap);
