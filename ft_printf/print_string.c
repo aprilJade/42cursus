@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:17:28 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/15 17:18:13 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/15 18:25:17 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@ int	print_string(va_list *ap)
 	char	*s;
 
 	s = va_arg(*ap, char *);
+	if (s == NULL)
+		return (ft_putstr("(null)"));
 	return (ft_putstr(s));	
 }
