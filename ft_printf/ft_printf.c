@@ -6,7 +6,7 @@
 /*   By: apriljade <apriljade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:35:25 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/15 21:55:25 by apriljade        ###   ########.fr       */
+/*   Updated: 2022/07/17 18:25:23 by apriljade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void	init_function_table(void *functions[])
 {
 	int	i = 0;
-	while (i < 128)
+	while (i < FUNCTION_TABLE_SIZE)
 		functions[i++] = NULL;
 	functions[CHARACTER] = print_char;
 	functions[STRING] = print_string;
@@ -32,9 +32,9 @@ void	init_function_table(void *functions[])
 
 int	ft_printf(char *s, ...)
 {
-	va_list ap;
+	va_list	ap;
 	int		printed_count;
-	void	*functions[128];
+	void	*functions[FUNCTION_TABLE_SIZE];
 	int		(*func)(va_list *);
 
 	va_start(ap, s);
@@ -45,7 +45,7 @@ int	ft_printf(char *s, ...)
 		if (*s == '%')
 		{
 			s++;
-			func = functions[(int)*s++];
+			func = functions[(unsigned int)*s++];
 			if (func == UNSUPPORTED_FORMAT)
 				break ;
 			printed_count += func(&ap);		
