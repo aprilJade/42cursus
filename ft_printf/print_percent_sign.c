@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_percent_sign.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: apriljade <apriljade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:27:05 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/15 17:27:53 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/15 22:01:21 by apriljade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int	print_percent_sign(va_list *ap)
 {
-	ap = 0;
+	va_list tmp;
+	va_copy(tmp, *ap);
 	return (ft_putchar('%'));
 }

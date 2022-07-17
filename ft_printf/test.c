@@ -12,8 +12,11 @@ int main(void)
 	//ft_printf("test unsigned decimal my: %u\n", -948384949);
 	//printf("test unsigned decimal std: %u\n", -948384949);
 	//ft_printf("test percent sign my: %%\n");
-	ft_printf("test hex lowercase my: %x\n", 1735929054u);
-	printf("test hex lowercase std: %x\n", 1735929054u);
+	ft_printf("test hex lowercase my: %x\n", 3233423244u);
+	printf("test hex lowercase std: %x\n", 3233423244u);
+	ft_printf("test hex lowercase my: %x\n", 1764232445u);
+	printf("test hex lowercase std: %x\n", 1764232445u);
 	//ft_printf("test hex uppercase my: %X\n", 34928739);
 	//printf("test hex uppercase std: %X\n", 34928739);
+	printf("%d\n", 15 / 16);
 }
