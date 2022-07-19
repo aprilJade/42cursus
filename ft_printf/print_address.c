@@ -6,7 +6,7 @@
 /*   By: apriljade <apriljade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:28:22 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/17 18:16:47 by apriljade        ###   ########.fr       */
+/*   Updated: 2022/07/18 16:37:46 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	print_address(va_list *ap)
 	char				*hex_chars;
 	int					printed_count;
 	int					i;
-	
+
 	value = va_arg(*ap, unsigned char *);
 	if (value == NULL)
-		return (ft_putstr("(nil)"));
+		return (ft_putstr("0x0"));
 	p_value = (unsigned char *)&value;
 	hex_chars = "0123456789abcdef";
 	printed_count = 0;
@@ -31,6 +31,11 @@ int	print_address(va_list *ap)
 	i = sizeof(size_t) - 1;
 	while (p_value[i] == 0)
 		i--;
+	if (p_value[i] < 16)
+	{
+		ft_putchar(hex_chars[p_value[i] % 16]);
+		i--;
+	}
 	while (i >= 0)
 	{
 		printed_count += ft_putchar(hex_chars[p_value[i] / 16]);

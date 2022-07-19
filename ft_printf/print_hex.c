@@ -6,7 +6,7 @@
 /*   By: apriljade <apriljade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:16:45 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/17 18:04:44 by apriljade        ###   ########.fr       */
+/*   Updated: 2022/07/18 16:11:37 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	print_hex_lower(va_list *ap)
 	hex_chars = "0123456789abcdef";
 	value = va_arg(*ap, unsigned int);
 	hex_digit = get_hex_digit(value);
-	tmp	= (int)get_pow_of_16(hex_digit);
+	tmp = (int)get_pow_of_16(hex_digit);
 	printed_count = 0;
 	while (hex_digit--)
 	{
@@ -46,7 +46,7 @@ int	print_hex_upper(va_list *ap)
 	hex_chars = "0123456789ABCDEF";
 	value = va_arg(*ap, unsigned int);
 	hex_digit = get_hex_digit(value);
-	tmp	= (int)get_pow_of_16(hex_digit);
+	tmp = (int)get_pow_of_16(hex_digit);
 	printed_count = 0;
 	while (hex_digit--)
 	{

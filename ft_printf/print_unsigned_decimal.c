@@ -6,7 +6,7 @@
 /*   By: apriljade <apriljade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:23:00 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/17 18:27:12 by apriljade        ###   ########.fr       */
+/*   Updated: 2022/07/18 12:35:56 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static char	*ft_utoa(unsigned int n)
 	return (ret);
 }
 
-int print_unsigned_decimal(va_list *ap)
+int	print_unsigned_decimal(va_list *ap)
 {
 	unsigned int	value;
 	char			*svalue;

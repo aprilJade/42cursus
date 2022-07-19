@@ -6,7 +6,7 @@
 /*   By: apriljade <apriljade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:18:41 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/17 18:27:03 by apriljade        ###   ########.fr       */
+/*   Updated: 2022/07/18 12:34:12 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_itoa(int n)
 	return (ret);
 }
 
-int print_decimal(va_list *ap)
+int	print_decimal(va_list *ap)
 {
 	int		value;
 	char	*svalue;

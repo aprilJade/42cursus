@@ -6,17 +6,19 @@
 /*   By: apriljade <apriljade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:35:25 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/17 18:25:23 by apriljade        ###   ########.fr       */
+/*   Updated: 2022/07/18 10:29:17 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdarg.h>
 #include "ft_printf.h"
 #include "ft_printf_utils.h"
-#include <stdarg.h>
 
 void	init_function_table(void *functions[])
 {
-	int	i = 0;
+	int	i;
+
+	i = 0;
 	while (i < FUNCTION_TABLE_SIZE)
 		functions[i++] = NULL;
 	functions[CHARACTER] = print_char;
@@ -48,7 +50,7 @@ int	ft_printf(char *s, ...)
 			func = functions[(unsigned int)*s++];
 			if (func == UNSUPPORTED_FORMAT)
 				break ;
-			printed_count += func(&ap);		
+			printed_count += func(&ap);
 		}
 		else
 			printed_count += ft_putchar(*s++);
