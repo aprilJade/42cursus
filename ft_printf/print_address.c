@@ -6,7 +6,7 @@
 /*   By: apriljade <apriljade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:28:22 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/18 16:37:46 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/19 19:02:51 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,11 @@ int	print_address(va_list *ap)
 	while (p_value[i] == 0)
 		i--;
 	if (p_value[i] < 16)
-	{
-		ft_putchar(hex_chars[p_value[i] % 16]);
-		i--;
-	}
+		printed_count += ft_putchar(hex_chars[p_value[i--] % 16]);
 	while (i >= 0)
 	{
 		printed_count += ft_putchar(hex_chars[p_value[i] / 16]);
-		printed_count += ft_putchar(hex_chars[p_value[i] % 16]);
-		i--;
+		printed_count += ft_putchar(hex_chars[p_value[i--] % 16]);
 	}
 	return (printed_count);
 }
