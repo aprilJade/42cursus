@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 16:18:34 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 15:33:33 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/23 16:24:19 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	parse_map(t_map *map)
 	}
 }
 
-static void	check_wall(t_game_props* props)
+static void	check_wall(t_game_props *props)
 {
 	char	*pd;
 	int		i;
@@ -59,7 +59,7 @@ static void	check_wall(t_game_props* props)
 	}
 }
 
-void	check_map_validation(t_game_props* props)
+void	check_map_validation(t_game_props *props)
 {
 	parse_map(&props->map);
 	if (props->map.chest_count < 1)

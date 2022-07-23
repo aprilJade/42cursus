@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 14:42:00 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 15:01:24 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/23 16:25:56 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,5 @@ enum e_imgName
 	GRASS,
 	DOOR	
 };
-
 
 #endif

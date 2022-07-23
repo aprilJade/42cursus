@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 15:40:08 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 15:30:38 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/23 16:25:00 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ enum e_error_code
 	NO_ERROR = 0
 };
 
-void	print_err(t_game_props* props, int error_code);
+void	print_err(t_game_props *props, int error_code);
 
 #endif

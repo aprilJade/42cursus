@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 14:59:06 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 15:46:17 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/23 16:20:50 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	init_game(t_game_props *props, char *map_name)
 {
 	int	x;
 	int	y;
-	
+
 	read_map(props, map_name);
 	check_map_validation(props);
 	props->mlx = mlx_init();
@@ -42,7 +42,7 @@ void	init_game(t_game_props *props, char *map_name)
 	draw_map(props);
 }
 
-int	end_game(t_endgame_param* param)
+int	end_game(t_endgame_param *param)
 {
 	int	i;
 

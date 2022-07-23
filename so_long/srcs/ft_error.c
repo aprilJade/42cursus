@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 15:41:56 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 15:38:35 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/23 16:20:18 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 #include "string_utils.h"
 #include "game_manager.h"
 
-void	print_err(t_game_props* props, int error_code)
+void	print_err(t_game_props *props, int error_code)
 {
-	t_endgame_param param;
+	t_endgame_param	param;
+
 	if (error_code == ARG_ERROR)
 		ft_putstr("Error\nInvalid argument count\n");
 	else if (error_code == FILE_ERROR)

@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 12:02:44 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 12:07:48 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/23 16:26:39 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 # include "so_long.h"
 # include "drawer.h"
 
-void	draw_map(t_game_props* props);
+void	draw_map(t_game_props *props);
 
 #endif

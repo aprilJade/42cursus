@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 14:50:11 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 16:05:14 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/23 16:24:01 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	get_map_width(char *data)
 
 static int	get_map_height(char *data, int width)
 {
-	int	height;
+	int		height;
 	char	*pd;
 
 	pd = data;
@@ -55,7 +55,7 @@ static int	get_map_height(char *data, int width)
 	return (height);
 }
 
-static void	prep_map_data(t_game_props* props, char *data)
+static void	prep_map_data(t_game_props *props, char *data)
 {
 	props->map.width = get_map_width(data);
 	if (props->map.width == MAP_DATA_ERROR)
@@ -88,9 +88,9 @@ void	read_map(t_game_props *props, char *map_name)
 	buf[size] = 0;
 	close(fd);
 	prep_map_data(props, buf);
-	props->map.data = (char *)malloc(sizeof(char) * props->map.width * props->map.height + 1);
+	props->map.data = (char *)malloc(sizeof(char) * \
+		props->map.width * props->map.height + 1);
 	if (props->map.data == NULL)
 		print_err(props, MALLOC_ERROR);
 	ft_strcpy(props->map.data, buf);
 }
-

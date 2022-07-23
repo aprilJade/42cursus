@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:13:01 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 14:54:08 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/23 16:26:34 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ enum e_keys
 	KEY_D = 2
 };
 
-int	keyboard_input_listener(int keycode, t_game_props* props);
+int	keyboard_input_listener(int keycode, t_game_props *props);
 
 #endif
