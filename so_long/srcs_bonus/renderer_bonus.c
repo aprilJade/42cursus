@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reader.h                                       :+:      :+:    :+:   */
+/*   renderer_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 16:20:38 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 18:59:33 by seonggyk         ###   ########.fr       */
+/*   Created: 2022/07/25 13:18:59 by seonggyk          #+#    #+#             */
+/*   Updated: 2022/07/25 18:36:20 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_READER_H
-# define MAP_READER_H
-# define BUFFER_SIZE	8196
-# include "so_long.h"
+#include "renderer_bonus.h"
+#include "map_drawer_bonus.h"
+#include "board_drawer_bonus.h"
 
-void	read_map(t_game_props *props, char *map_name);
+int	render(t_game_props *props)
+{
+	static int	frame_number;
 
-#endif
+	draw_map(props, frame_number++ / 5);
+	draw_board(props);
+	return (0);
+}

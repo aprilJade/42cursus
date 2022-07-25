@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reader.h                                       :+:      :+:    :+:   */
+/*   game_manager_bonus.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 16:20:38 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 18:59:33 by seonggyk         ###   ########.fr       */
+/*   Created: 2022/07/23 15:01:00 by seonggyk          #+#    #+#             */
+/*   Updated: 2022/07/25 17:59:34 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_READER_H
-# define MAP_READER_H
-# define BUFFER_SIZE	8196
-# include "so_long.h"
+#ifndef GAME_MANAGER_BONUS_H
+# define GAME_MANAGER_BONUS_H
+# include "so_long_bonus.h"
 
-void	read_map(t_game_props *props, char *map_name);
+typedef struct s_endgame_param
+{
+	t_game_props	*props;
+	int				err_code;
+}	t_endgame_param;
+
+void	init_game(t_game_props *props, char *map_name);
+int		end_game(t_endgame_param *param);
 
 #endif

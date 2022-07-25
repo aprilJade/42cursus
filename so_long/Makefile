@@ -6,37 +6,48 @@
 #    By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/22 12:26:18 by seonggyk          #+#    #+#              #
-#    Updated: 2022/07/23 15:09:54 by seonggyk         ###   ########.fr        #
+#    Updated: 2022/07/25 19:46:09 by seonggyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	so_long
-CFLAG		=	-Wall -Wextra -Werror
-INCLUDES	=	-Imlx -Iincludes
-LIB			=	-Lmlx -lmlx
-FRAMEWORK	=	-framework OpenGL -framework AppKit
-SRCS		=	./srcs/drawer.c ./srcs/ft_error.c ./srcs/game_manager.c \
-				./srcs/main.c ./srcs/map_validator.c ./srcs/string_utils.c \
-				./srcs/map_reader.c ./srcs/input_handler.c ./srcs/map_drawer.c
-OBJS		=	$(SRCS:c=o)
+NAME			=	so_long
+BONUS_NAME		=	so_long_bonus
+CFLAG			=	-Wall -Wextra -Werror
+INCLUDES		=	-I./mlx/ -I./includes/
+BONUS_INCLUDES	=	-I./mlx/ -I./includes_bonus/
+LIB				=	-Lmlx -lmlx
+FRAMEWORK		=	-framework OpenGL -framework AppKit
+SRC				=	drawer.c ft_error.c game_manager.c \
+					main.c map_validator.c string_utils.c \
+					map_reader.c input_handler.c map_drawer.c
+BONUS_SRC		=	drawer_bonus.c ft_error_bonus.c game_manager_bonus.c \
+					main_bonus.c map_validator_bonus.c string_utils_bonus.c \
+					map_reader_bonus.c input_handler_bonus.c map_drawer_bonus.c \
+					renderer_bonus.c image_reader_bonus.c drawer2_bonus.c \
+					board_drawer_bonus.c image_remover_bonus.c
+SRCS			=	$(addprefix ./srcs/, $(SRC))
+OBJS			=	$(SRCS:.c=.o)
+BONUS_SRCS		=	$(addprefix ./srcs_bonus/, $(BONUS_SRC))
+BONUS_OBJS		=	$(BONUS_SRCS:.c=.o)
 
 ifdef DEBUG
 	CFLAG += -g -fsanitize=address
 endif
 
-%.o:	%.c
-	cc $(CFLAG) $(INCLUDES) -c $< -o $@ 
+%.o: %.c
+	cc $(CFLAG) $(INCLUDES) $(BONUS_INCLUDES) -c $< -o $@ 
 
-$(NAME):$(OBJS)
+$(NAME): $(OBJS)
+	make -C ./mlx
 	cc $(CFLAG) $(LIB) $(FRAMEWORK) $(INCLUDES) -o $(NAME) $(OBJS)
 
-all:	$(NAME)
+all: $(NAME)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(BONUS_OBJS)
 
-fclean:
-	rm -rf $(OBJS) $(NAME)
+fclean: clean
+	rm -rf $(NAME) $(BONUS_NAME)
 
 re:
 	make fclean
@@ -45,4 +56,14 @@ re:
 debug:
 	make fclean
 	make DEBUG=1 all
-.PHONY:all clean fclean re debug
+
+bonus: $(BONUS_NAME)
+
+dbonus:
+	make fclean
+	make DEBUG=1 bonus	
+
+$(BONUS_NAME): $(BONUS_OBJS)
+	cc $(CFLAG) $(LIB) $(FRAMEWORK) $(BONUS_INCLUDES) -o $(BONUS_NAME) $(BONUS_OBJS)
+
+.PHONY: all clean fclean re debug bonus

@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reader.h                                       :+:      :+:    :+:   */
+/*   image_reader_bonus.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 16:20:38 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 18:59:33 by seonggyk         ###   ########.fr       */
+/*   Created: 2022/07/25 14:54:14 by seonggyk          #+#    #+#             */
+/*   Updated: 2022/07/25 18:33:50 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_READER_H
-# define MAP_READER_H
-# define BUFFER_SIZE	8196
-# include "so_long.h"
+#ifndef IMAGE_READER_BONUS_H
+# define IMAGE_READER_BONUS_H
+# include "so_long_bonus.h"
 
-void	read_map(t_game_props *props, char *map_name);
+void	read_images(t_game_props *props);
 
 #endif

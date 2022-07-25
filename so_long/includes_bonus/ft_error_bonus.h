@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reader.h                                       :+:      :+:    :+:   */
+/*   ft_error_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 16:20:38 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 18:59:33 by seonggyk         ###   ########.fr       */
+/*   Created: 2022/07/22 15:40:08 by seonggyk          #+#    #+#             */
+/*   Updated: 2022/07/25 17:59:31 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_READER_H
-# define MAP_READER_H
-# define BUFFER_SIZE	8196
-# include "so_long.h"
+#ifndef FT_ERROR_BONUS_H
+# define FT_ERROR_BONUS_H
+# include "so_long_bonus.h"
 
-void	read_map(t_game_props *props, char *map_name);
+enum e_error_code
+{
+	ARG_ERROR = -100,
+	FILE_ERROR,
+	READ_ERROR,
+	MALLOC_ERROR,
+	MAP_NAME_ERROR,
+	MAP_DATA_ERROR,
+	NO_ERROR = 0
+};
+
+void	print_err(t_game_props *props, int error_code);
 
 #endif

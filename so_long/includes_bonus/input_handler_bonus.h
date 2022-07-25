@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reader.h                                       :+:      :+:    :+:   */
+/*   input_handler_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 16:20:38 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 18:59:33 by seonggyk         ###   ########.fr       */
+/*   Created: 2022/07/22 17:13:01 by seonggyk          #+#    #+#             */
+/*   Updated: 2022/07/25 17:59:40 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_READER_H
-# define MAP_READER_H
-# define BUFFER_SIZE	8196
-# include "so_long.h"
+#ifndef INPUT_HANDLER_BONUS_H
+# define INPUT_HANDLER_BONUS_H
+# define RELEASE_KEY_EVENT 3
+# define WIN_DESTROY_EVENT 17
+# include "so_long_bonus.h"
 
-void	read_map(t_game_props *props, char *map_name);
+enum e_keys
+{
+	KEY_ESC = 53,
+	KEY_W = 13,
+	KEY_A = 0,
+	KEY_S = 1,
+	KEY_D = 2
+};
+
+int	keyboard_input_listener(int keycode, t_game_props *props);
 
 #endif

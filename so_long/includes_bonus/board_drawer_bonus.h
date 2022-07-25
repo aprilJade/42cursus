@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reader.h                                       :+:      :+:    :+:   */
+/*   board_drawer_bonus.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggyk <seonggyk@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 16:20:38 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/23 18:59:33 by seonggyk         ###   ########.fr       */
+/*   Created: 2022/07/25 17:56:59 by seonggyk          #+#    #+#             */
+/*   Updated: 2022/07/25 18:37:06 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_READER_H
-# define MAP_READER_H
-# define BUFFER_SIZE	8196
-# include "so_long.h"
+#ifndef BOARD_DRAWER_BONUS_H
+# define BOARD_DRAWER_BONUS_H
+# include "so_long_bonus.h"
+# define WHITE 0xffffff
+# define BLACK 0x000000
+# define MOVEMENT_INFO_LEN 14
 
-void	read_map(t_game_props *props, char *map_name);
+void	draw_board(t_game_props *props);
 
 #endif
