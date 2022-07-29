@@ -20,9 +20,13 @@ This is 2D game, coded using minilibX.
 - ESC: exit game
 
 ## Mandatory
-`$ make`
-`$ ./so_long maps/map.ber`
+```bash
+$ make
+$ ./so_long maps/map.ber
+```
 
 ## Bonus
-`$ make bonus`
-`$ ./so_long_bonus maps/bonus.ber`
+```bash
+$ make bonus
+$ ./so_long_bonus maps/bonus.ber
+```
