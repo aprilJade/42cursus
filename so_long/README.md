@@ -3,7 +3,7 @@ This is 2D game, coded using minilibX.
 
 # Dependency
 - You need make, gcc
-- You need intel MAC
+- You need intel Mac
 
 # How to play
 
