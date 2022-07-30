@@ -6,7 +6,6 @@ typedef struct s_stack
 {
 	int		top;
 	int		*data;
-	int		size;
 }	t_stack;
 
 t_stack	*new_stack(int *data, int stack_size);

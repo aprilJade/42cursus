@@ -1,4 +1,5 @@
 #include "stack.h"
+#include <stdlib.h>
 
 t_stack	*new_stack(int *data, int stack_size)
 {
@@ -6,10 +7,19 @@ t_stack	*new_stack(int *data, int stack_size)
 
 	ret = (t_stack *)malloc(sizeof(t_stack));
 	if (ret == NULL)
-		return (NULL);
-	ret->size = stack_size;
-	ret->top = -1;
-	ret->data = NULL;
+		exit(1);
+	if (data)
+	{
+		ret->top = stack_size - 1;
+		ret->data = data;
+	}
+	else
+	{
+		ret->data = (int *)malloc(sizeof(int) * stack_size);
+		if (ret->data == NULL)
+			exit(1);
+		ret->top = -1;
+	}
 	return (ret);
 }
 

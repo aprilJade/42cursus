@@ -1,8 +1,12 @@
 #include "props.h"
-#include <unistd.h>
+#include "argv_parser.h"
 
-void	init_props(t_props *props, int stack_size)
+void	init_props(t_props *props, int ac, char **av)
 {
-	//props->a = new_stack(stack_size);
-	//props->b = new_stack(stack_size);
+	int	*data;
+	int	data_cnt;
+
+	data_cnt = parse_argv(ac, av, &data);
+	props->a = new_stack(data, data_cnt);
+	props->b = new_stack(0, data_cnt);
 }

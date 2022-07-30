@@ -6,14 +6,16 @@
 #    By: apriljade <apriljade@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/22 12:26:18 by seonggyk          #+#    #+#              #
-#    Updated: 2022/07/30 13:41:21 by apriljade        ###   ########.fr        #
+#    Updated: 2022/07/30 16:08:24 by apriljade        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	push_swap
 CFLAG			=	-Wall -Wextra -Werror
 INCLUDES		=	-I./includes/
-SRC				=	main.c 
+SRC				=	main.c ft_atoi.c ft_split.c props.c stack.c \
+					commands_r.c commands_rr.c commands_s.c \
+					commands_p.c
 SRCS			=	$(addprefix ./srcs/, $(SRC))
 OBJS			=	$(SRCS:.c=.o)
 

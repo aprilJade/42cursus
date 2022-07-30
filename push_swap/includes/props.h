@@ -8,6 +8,6 @@ typedef struct s_props
 	t_stack	*b;
 }	t_props;
 
-void	init_props(t_props *props, int stack_size);
+void	init_props(t_props *props, int ac, char **av);
 
 #endif
