@@ -1,0 +1,46 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: apriljade <apriljade@student.42.fr>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/07/22 12:26:18 by seonggyk          #+#    #+#              #
+#    Updated: 2022/07/30 13:41:21 by apriljade        ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME			=	push_swap
+CFLAG			=	-Wall -Wextra -Werror
+INCLUDES		=	-I./includes/
+SRC				=	main.c 
+SRCS			=	$(addprefix ./srcs/, $(SRC))
+OBJS			=	$(SRCS:.c=.o)
+
+ifdef DEBUG
+	CFLAG += -g -fsanitize=address
+endif
+
+%.o: %.c
+	cc $(CFLAG) $(INCLUDES) -c $< -o $@ 
+
+$(NAME): $(OBJS)
+	cc $(CFLAG) $(INCLUDES) -o $(NAME) $(OBJS)
+
+all: $(NAME)
+
+clean:
+	rm -rf $(OBJS) $(BONUS_OBJS)
+
+fclean: clean
+	rm -rf $(NAME) $(BONUS_NAME)
+
+re:
+	make fclean
+	make all
+
+d:
+	make fclean
+	make DEBUG=1 all
+
+.PHONY: all clean fclean re debug bonus
