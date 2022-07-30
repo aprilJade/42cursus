@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 14:19:24 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/14 14:19:26 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/30 15:16:44 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	*ft_strdup(char *s)
 		return (NULL);
 	ps = new_str;
 	while (*s)
-		*ps++ = *s;
+		*ps++ = *s++;
 	*ps = 0;
 	return (new_str);
 }
