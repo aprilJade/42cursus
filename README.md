@@ -1,5 +1,4 @@
 # 42 Cursus!
 
-Hi! I'm seonggyk.
-This repository is for backup only.
-If you have any question about code in this repository, just contact me via 42 slack.
+안녕하세요. seonggyk이에요. 42서울 과정을 진행하면서 해결한 과제들을 모아두는 레포지토리에요.
+궁금한 점이 있다면 슬랙 born2code에서 seonggyk에게 DM 주세요.
