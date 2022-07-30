@@ -1,5 +1,6 @@
 #ifndef STACK_H
 # define STACK_H
+# define NULL 0
 
 typedef struct s_stack
 {
@@ -10,7 +11,7 @@ typedef struct s_stack
 
 t_stack	*new_stack(int *data, int stack_size);
 int		pop(t_stack *stack);
-int		push(t_stack *stack, int value);
+void	push(t_stack *stack, int value);
 
 
 #endif
