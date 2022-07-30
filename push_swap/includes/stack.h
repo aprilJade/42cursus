@@ -1,6 +1,5 @@
 #ifndef STACK_H
 # define STACK_H
-# define NULL 0
 
 typedef struct s_stack
 {

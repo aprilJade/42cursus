@@ -1,6 +1,7 @@
 #include "argv_parser.h"
 #include "string_utils.h"
 #include <stdlib.h>
+#include "err.h"
 
 int	count_tab(char **tab)
 {
@@ -34,12 +35,12 @@ int	parse_argv(int ac, char **av, int **out)
 	{
 		tmp[i] = ft_split(*av++, ' ');
 		if (tmp[i] == NULL)
-			exit(1);
+			print_with_exit(SPLIT_ERR);
 		cnt += count_tab(tmp[i++]);
 	}
 	ret = (int *)malloc(sizeof(int) * cnt);
 	if (ret == NULL)
-		exit(1);
+		print_with_exit(MALLOC_ERR);
 	i = 0;
 	while (*tmp)
 	{
@@ -47,7 +48,7 @@ int	parse_argv(int ac, char **av, int **out)
 		while (*temp)
 		{
 			if (!ft_atoi(*temp, &ret[i]))
-				exit(1);
+				print_with_exit(INVALID_INPUT_ERR);
 			temp++;
 			i++;
 		}

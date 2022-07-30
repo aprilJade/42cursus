@@ -1,6 +1,7 @@
 #include "commands.h"
+#include <unistd.h>
 
-static basic_r(t_stack *stack)
+static void	basic_r(t_stack *stack)
 {
 	int		value;
 	int		i;

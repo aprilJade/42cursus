@@ -1,4 +1,5 @@
 #include "commands.h"
+#include <unistd.h>
 
 static void	basic_s(t_stack *stack)
 {

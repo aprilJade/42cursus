@@ -1,4 +1,5 @@
 #include "stack.h"
+#include "err.h"
 #include <stdlib.h>
 
 t_stack	*new_stack(int *data, int stack_size)
@@ -6,8 +7,8 @@ t_stack	*new_stack(int *data, int stack_size)
 	t_stack	*ret;
 
 	ret = (t_stack *)malloc(sizeof(t_stack));
-	if (ret == NULL)
-		exit(1);
+	if (ret == 0)
+		print_with_exit(MALLOC_ERR);
 	if (data)
 	{
 		ret->top = stack_size - 1;
@@ -16,8 +17,8 @@ t_stack	*new_stack(int *data, int stack_size)
 	else
 	{
 		ret->data = (int *)malloc(sizeof(int) * stack_size);
-		if (ret->data == NULL)
-			exit(1);
+		if (ret->data == 0)
+			print_with_exit(MALLOC_ERR);
 		ret->top = -1;
 	}
 	return (ret);
