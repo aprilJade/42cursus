@@ -1,32 +1,29 @@
 # so long
-This is 2D game, coded using minilibX.
+minilibx를 사용해서 구현한 2D게임이에요.
 
-# Dependency
-- You need make, gcc
-- You need intel Mac
-
-# How to play
-
-## Rule
-- You can move using "WASD" keys.
-- You can exit if you get every collectible
-- Beware of enemies for bonus!
-
-## Key
-- W: move up
-- S: move down
-- A: move left
-- D: move right
-- ESC: exit game
+# 코드 설명??
+지도 검사나 움직이는 알고리즘 등등은 알아서 잘 하시리라 봅니다. 다른분들이 A-z로 작성해놓은 좋은 글들도 많으니 참고하셔요.
+저는 게임 화면을 그리는 방법에 대해 논하려합니다.
 
 ## Mandatory
-```bash
-$ make
-$ ./so_long maps/map.ber
-```
+mandatory는 애니메이션을 구현할 필요가 없어요. 이 말은 곧 플레이어가 움직이는 경우에만 그림을 그려주면 된다는 의미에요.
+`mlx_hook()` 이라는 함수에 적절히 매개변수를 넣어 호출하실 텐데요. 여기에 콜 백 함수 (Call back)를 넣게 되어있어요.
+키보드를 입력하면 특정 함수가 호출되도록 할 수 있죠. 
+방금전 저는 플레이어가 움직이는 경우에만 그림을 그려주면 된다고 했어요. 플레이어가 움직이는 경우는 키보드를 입력했을 때 밖에 없어요.
+그러니 저 키보드 이벤트에 따른 Call back 함수에서 적절하게 그림 그려주는 코드를 작성하면 돼요.
 
 ## Bonus
-```bash
-$ make bonus
-$ ./so_long_bonus maps/bonus.ber
-```
+보너스는 애니메이션을 구현해야해요. 구현하는 방법은 Flipbook 원리를 이용해요. 
+Mandatory에서는 변경이 일어나는 곳만 다시그려주기가 쉬웠어요. 왜냐하면 키보드 입력이 일어났을 때 플레이어가 움직이는 경우에만 다시 그려주면 됐거든요.
+그런데 보너스는 키보드 입력을 하지 않아도 계속 다시 그려주어야하요. 그래서 `mlx_loop_hook()` 이라는 함수를 이용해서 지속적으로 그려줘요.
+
+# 당부 사항
+1. ESC키를 입력하거나 윈도우의 X버튼을 클릭했을 때 게임이 종료되어야하는데, 이때 Access Violation 조심하세요.
+2. 저는 명시적으로 heap에 할당한 것들을 해제해주었지만 해주지 않아도 Memory Leak은 발생하지 않아요. 왤까요?
+3. 보너스에서 그림을 지속적으로 계속 그릴 때, 저는 if문을 사용하지 않고 함수 포인터를 썼어요. 왤까요?
+4. 반면 Mandatory에서는 그림을 그릴 때 if문을 떡칠했어요. 왤까요?
+5. 제 render함수를 보면 frame을 5로 나누는 코드가 있어요. 왜 저랬을까요?
+6. 제 보너스 코드는 애니메이션이 없는 벽, 길, 출구도 계속 다시 그리고 있어요. 성능을 향상시키려면 그리면 안돼요. 그렇다고 안그리려고 if문을 마구 쓰면 성능 향상이 안될거에요. 어떻게 하면 좋을까요?
+
+# 점수!
+125/125
