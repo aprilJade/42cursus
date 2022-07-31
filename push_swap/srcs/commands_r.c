@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 12:16:42 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/31 12:16:43 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/31 14:36:19 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 static void	basic_r(t_stack *stack)
 {
-	int		value;
-	int		i;
+	t_element	value;
+	int			i;
 
 	if (stack->top <= 0)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 12:17:14 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/31 13:46:50 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/31 17:00:02 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ typedef struct s_props
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		*sorted_data;
 }	t_props;
 
 void	init_props(t_props *props, int ac, char **av);
