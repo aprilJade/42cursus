@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   argv_parser.c                                      :+:      :+:    :+:   */
+/*   input_parser.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggyk <seonggyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 12:16:37 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/31 12:16:38 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/31 12:36:22 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "argv_parser.h"
+#include "input_parser.h"
 #include "string_utils.h"
 #include <stdlib.h>
 #include "err.h"

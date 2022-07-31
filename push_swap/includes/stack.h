@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 12:17:16 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/31 12:17:17 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/31 12:38:12 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ typedef struct s_stack
 t_stack	*new_stack(int *data, int stack_size);
 int		pop(t_stack *stack);
 void	push(t_stack *stack, int value);
-
+int		check_duplication(t_stack *stack);
 
 #endif

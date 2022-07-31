@@ -6,12 +6,12 @@
 /*   By: seonggyk <seonggyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 12:17:02 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/31 12:17:02 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/31 12:37:28 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "props.h"
-#include "argv_parser.h"
+#include "input_parser.h"
 
 void	init_props(t_props *props, int ac, char **av)
 {
