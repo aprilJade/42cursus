@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   props.h                                            :+:      :+:    :+:   */
+/*   solver.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seonggyk <seonggyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 12:17:14 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/31 13:46:50 by seonggyk         ###   ########.fr       */
+/*   Created: 2022/07/31 13:47:51 by seonggyk          #+#    #+#             */
+/*   Updated: 2022/07/31 13:55:57 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PROPS_H
-# define PROPS_H
-# include "stack.h"
+#include "solver.h"
 
-typedef struct s_props
+void	sort(int *data, int size)
 {
-	t_stack	*a;
-	t_stack	*b;
-}	t_props;
-
-void	init_props(t_props *props, int ac, char **av);
-
-#endif
+	int	i;
+	int j;
+	int	tmp;
+	
+	i = 0;
+	while (i < size - 1)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (data[i] < data[j])
+			{
+				tmp = data[i];
+				data[i] = data[j];
+				data[j] = tmp;
+			}
+			j++;
+		}
+		i++;
+	}
+}

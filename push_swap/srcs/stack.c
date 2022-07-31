@@ -6,7 +6,7 @@
 /*   By: seonggyk <seonggyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 12:17:04 by seonggyk          #+#    #+#             */
-/*   Updated: 2022/07/31 12:41:38 by seonggyk         ###   ########.fr       */
+/*   Updated: 2022/07/31 13:56:43 by seonggyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,14 @@ void		push(t_stack *stack, int value)
 
 int		check_duplication(t_stack *stack)
 {
-	int	*pd;
-	int	cnt;
 	int	i;
-	int	j;
 
-	pd = stack->data;
-	cnt = stack->top + 1;
 	i = 0;
 	while (i < stack->top)
 	{
-		j = i + 1;
-		while (j < stack->top + 1)
-			if (stack->data[i] == stack->data[j++])
-				return (0);
-		i++;			
+		if (stack->data[i] <= stack->data[i + 1])
+			return (1);
+		i++;
 	}
-	return (1);
+	return (0);
 }
